@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: hcp-invoice-report
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --timeout 120
+    envVars:
+      - key: HCP_API_KEY
+        sync: false
+      - key: APP_PASSWORD
+        sync: false
